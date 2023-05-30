@@ -1,0 +1,469 @@
+/* variables*/ 
+:root{
+    --main-color:#3dc;
+    --secondary-color : rgb(40,69,86);
+    --section-padding: 60px; 
+    --section-backgroundColor: #f6f6f6;
+    --paragraph-color: #777;
+}
+/* end variables*/
+
+/* start components */
+.special-heading{
+    color: #eee;
+    text-align: center;
+    font-size: 70px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    margin: 0;
+}
+.special-heading + p {
+margin: -28px 0 0;
+text-align: center;
+
+}
+
+/* end components */ 
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.container{
+    padding-inline: 15px;
+    margin-left: auto;/* bech el3anaser elli fost el container tji fel wsat */
+    margin-right:auto;/* bech el3anaser elli fost el container tji fel wsat */
+}
+
+/* nla7dhou elli kool wen tasghar echacha el repre mta3 el container 
+tji kheyba 3la khater el width fixed donc lazemna na3mlou media query bech 
+nriglou beha el mochkla hathy*/ 
+/*nesta3ml min-width w n7ot el width a9al bchway min a9*al width*/
+
+@media(max-width:767px){
+    .special-heading {
+        font-size: 60px;
+    }
+    .special-heading + p {
+        margin: -20px 0 0;
+    }
+}
+
+
+/* Small*/
+@media (min-width:768px){
+    .container{
+        width: 750px;
+    }
+}
+/* Medium */
+@media (min-width:992px){
+    .container{
+        width: 970px;
+    }
+}
+/*large*/ 
+@media (min-width: 1200px){
+    .container{
+        width: 1170px;
+    }
+}
+/* el container bech tkoun fih el 3anaser mta3 l page 
+w 7na regelnelou el resposivite mta3ou donc netsamou reguelna el responsivite mta3 el page lkolha*/
+
+header{
+    padding: 20px;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container .logo{
+    width: 60px;/*FIXED WIDTH*/
+}
+header .links{
+    position: relative;
+}
+header .links:hover .icon span:nth-child(2) {
+    width: 100%;
+}
+header .links .icon{
+    width: 30px;/*FIXED WIDTH*/
+    display: flex;
+    flex-wrap: wrap;/*important*/
+    justify-content: flex-end; 
+}
+header .links .icon span{
+    background-color:#355 ;
+    margin-bottom: 4px;
+    width: 100%;
+}
+header .links .icon span:first-child{
+    height:2px;
+}
+header .links .icon span:nth-child(2){
+    height: 2px;
+    width: 70%;
+    transition: width 0.3s;
+}
+header .links .icon span:nth-child(3){
+    height: 2px;
+}
+header .links ul {
+    list-style: none;
+    margin:0;/*important*/
+    padding:0;/*important*/
+    background-color:  #f6f6f6; 
+    right:0;/*bech matokhrejch min 3al yamin*//************IMPORTANT*********/
+    min-width: 200px;
+    position: absolute;
+    top: calc(100% + 15px);/*bech nkhalou blasa lel fleche*/
+    display: none;
+    z-index: 2;
+}
+header .links:hover ul{
+    display: block;
+}
+header .links ul::before{
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #f6f6f6  transparent;
+    position: absolute;
+    right: 5px;
+    top: -19px;
+}
+header .links ul li a { 
+    display: block;/* lazmk tzid display:block lil a dima */ /***** IMPORTANT *****/
+    padding: 15px;
+    text-decoration: none;
+    color: #355;
+    transition:0.3s;
+}
+header .links ul li a:hover{
+    padding-left: 25px; /*faza bahya !!*/
+}
+header .links ul li:not(:last-child) a{ /* matenszech e selectors hathouma */ 
+    border-bottom: 1px solid #ddd;
+}
+.Landing{
+    width: 100%;
+    height: calc(100vh - 64px);/* kfech nkhalouha 3al ecran lkolha w ena9sou menha el height mta3 el header*/
+    background-image: url(../images/images.jpg);
+    background-size: cover;
+    position: relative;/* itha ken mana3mlhech el text bech yetwasset 3la ases EL PAGE KAMLA */
+    z-index: 1;
+}
+.Landing .intro-text{
+    padding-top: 25px;
+    width: 320px;/* HATHY NA3REEFHA KIF N7EL EL PAGE FEL TALIFOUN WNCHOUF EL WIDTH KFECH 3AMEL*/
+    max-width: 100%;
+    text-align:center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.Landing .intro-text h1 {
+    margin:0; /* NAHINALOU EL MARGIN EL EFTIRADHI ELLI YA3MEL MACHAKEL */ 
+    color:var(--main-color);
+    font-weight: bold;
+    font-size: 50px; 
+}
+.Landing .intro-text p{
+    font-size: 19px; 
+    line-height: 1.8;/* MATENSECH EL ATTRIBUTE HAT5HY RAY MOUHEMMA */ 
+}
+
+/*Start Features */
+
+.features {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f6f6f6;
+}
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px,1fr));/* faza behya 3allekher : TKHALIHOULK RESPONSIVE AUTOMATIQUEMENT */
+    gap: 35px;
+}
+.features .container .feat {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(244, 244, 244);
+    border-radius: 10px;
+}
+.features .feat i {
+    color: var(--main-color);
+    font-size: 50px;
+}
+.feat h3 {
+    font-weight: 800;
+    margin: 30px 0 ;
+}
+.feat p {
+    line-height: 1.6;
+    color: #777;
+    font-size: 17px;
+}
+/*End Features */
+
+/* start services */
+.services {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 100px;
+}  
+.service {
+    display: flex;
+    margin-bottom: 40px;
+}
+@media (max-width:767px) {
+    .service {
+        text-align: center;
+        flex-direction: column;
+    }
+}
+.service i {
+    color: var(--main-color);
+    flex-basis: 60px;
+    font-size: 30px;
+}
+.service .text {
+    flex : 1; 
+}
+.service .text h3 {
+    margin-top:  0 ;
+}
+.service .text p {
+    color: #777;
+    font-weight: 300;
+    line-height: 1.6;
+}
+.services .image img {
+    width: 100%;
+    height: 85%;
+}
+.services .image {
+    position: relative;
+    text-align: center;
+}
+.services .image::before {
+    content: '';
+    position: absolute;
+    width: 80px; /* najmou nesta3mlou calc*/
+    height: 115%;
+    background-color: var(--secondary-color);
+    right: -35px;
+    top:-45px ;
+    z-index: -1;
+}
+
+@media (max-width : 1250px) {
+    .services .image-column {
+        display: none;
+    }
+}
+/* end services */
+/*Start Portfolio */
+.portfolio {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-backgroundColor);
+}
+.portfolio .portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 80px;
+}
+.portfolio .portfolio-content .card{
+    background-color: white
+}
+
+.portfolio .portfolio-content .card .info {
+    padding: 25px;
+}
+
+.portfolio .portfolio-content .card .info .info-title {
+    margin-top: 0;
+    font-weight: 800;
+}
+
+.portfolio .portfolio-content .card .image{
+    width: 100%;
+    height: 250px;
+}
+
+.portfolio .portfolio-content .card .image img {
+    max-width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.portfolio .portfolio-content .card p {
+    line-height: 1.4;
+    color: var(--paragraph-color);
+    margin-bottom: 0;
+}
+
+@media(max-width:665px){
+    .portfolio .portfolio-content .card {
+        text-align: center;
+    }
+}
+/*End Portfolio */
+
+
+/*Start about*/
+.about {
+    padding-top: var(--section-padding);
+    padding-bottom: calc( var(--section-padding)  + 70px);
+}
+.about .special-heading {
+    font-size: 90px;
+}
+.about-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.about-content .image img {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background-size: cover;
+}
+.about-content .image {
+    width:250px ;
+    height: 375px;
+    position: relative;
+    padding-top: 120px;
+}
+.about-content .image::before {
+    position: absolute;
+    content: '';
+    z-index: -1;
+    background-color: var(--main-color);
+    right: -30px;
+    top: 75px;
+    width: 75px;
+    height: 270px;
+}
+.about-content .image::after {
+    position: absolute;
+    content: '';
+    z-index: -1;
+    background-color: var(--main-color);
+    right: -100px;
+    top: 295px;
+    width: 150px;
+    height: 70px;
+}
+.about-content .about-info {
+    width: 50%;
+    padding: 80px 0 0 0;
+}
+.about-content .about-info .first-paragraph {
+    font-weight: 700;
+    line-height: 1.8;
+    margin-bottom: 0;
+    font-size: 18.5px;
+}
+.about-content .about-info .second-paragraph {
+    line-height: 1.6;
+    color: var(--paragraph-color);
+}
+.seperator {
+    margin-top: 50px;
+    width: 50%;
+    height: 3px;
+    background-color: var(--main-color);
+}
+@media(max-width:1000px){
+    .about-content {
+        flex-direction: column;
+        width: 100%;
+    }
+    .about-content .about-info  {
+        width:100%;
+        text-align: center;
+    }
+    .about-content .image{
+        width: 50%;
+        margin: auto;
+    }
+    .seperator{
+        margin-inline:auto;
+    }
+    .about-content .image::after {
+        right:-70px;
+    }
+}
+/*End about */
+
+/*Start Contact */ 
+.contact{
+    padding-top: var(--section-padding);
+    padding-bottom: calc(var(--section-padding) + 70px);
+    background-color: var(--section-backgroundColor);
+}
+
+.contact .info {
+    padding: 80px 0 0 0;
+    text-align: center;
+}
+.contact .info .label {
+    margin-bottom: 25px;
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--secondary-color);
+}
+.contact .info .link {
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 40px;
+    font-weight: 800;
+    display: block;
+}
+.contact .info .social {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    font-size: 19px;
+}
+.contact .info .social i {
+    margin-left: 10px;
+    color: var(--secondary-color);
+}
+@media(max-width:767px){
+    .contact .info .link ,
+    .contact .info .label {
+        font-size: 25px;
+    }
+}
+/*End contact */
+
+/*start footer */
+footer{
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-size: 19px;
+}
+footer span {
+    color: var(--main-color);
+}
+/*end footer */
